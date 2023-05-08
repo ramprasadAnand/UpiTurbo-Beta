@@ -1,0 +1,17 @@
+//
+//  P2P UAT.xcconfig
+//  RazorpayUPI
+//
+//  Created by Shikhar Singhal on 19/12/22.
+//  Copyright © 2020 Sachin Nautiyal. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+Config_Name = P2P UAT
+LUMBERJACK_UPI_KEY = 55DAB44EE7F21EF5AC8CC21A72295
+MobileNumber = 919800000999
+FLAG_DEBUGGABLE = true
+SDK_Type=Debug
+SSLCert = zeta-api.stage.razorpay.in
+SSLLumberjackCert = lumberjackUAT
