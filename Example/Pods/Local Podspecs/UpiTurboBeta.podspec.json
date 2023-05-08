@@ -1,0 +1,22 @@
+{
+  "name": "UpiTurboBeta",
+  "version": "0.1.0",
+  "summary": "A short description of UpiTurboBeta.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/85918255/UpiTurboBeta",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "85918255": "ramprasad.a@razorpay.com"
+  },
+  "source": {
+    "git": "https://github.com/85918255/UpiTurboBeta.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "UpiTurboBeta/Classes/**/*"
+}

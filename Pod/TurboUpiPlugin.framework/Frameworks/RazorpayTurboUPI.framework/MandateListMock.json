@@ -1,0 +1,92 @@
+{
+  "entity": "collection",
+  "items": [
+    {
+      "status": "requested",
+      "amount": 1000,
+      "end_date": 1645109999,
+      "currency": "INR",
+      "cycles_completed": 0,
+      "payer": {
+        "id": "vpa_IxMxOKMxCuM3Np",
+        "beneficiary_name": "Sharp Customer",
+        "validated": true,
+        "type": "vpa",
+        "address": "beta.9999999993.ocey@razorsharp"
+      },
+      "recurring_type": "MONTHLY",
+      "expire_at": 1645598249,
+      "revoked_at": null,
+      "recurring_value": 1,
+      "type": "collect",
+      "recurring_rule": "ON",
+      "umn": "123456789012345678901234",
+      "id": "cmdt_IzLVXO1SjdbJr5",
+      "upi": {
+        "ref_id": "",
+        "mcc": "",
+        "gateway_error_description": "Incoming collect request",
+        "network_transaction_id": "",
+        "rrn": "",
+        "ref_url": "",
+        "gateway_error_code": "00"
+      },
+      "entity": "customer.mandate",
+      "amount_rule": "MAX",
+      "start_date": 1645109255,
+      "payee": {
+        "id": "vpa_FUV2rdfV3bEXyF",
+        "beneficiary_name": "SHEKHAR SHRAWANKUMAR BHUWANIA",
+        "validated": true,
+        "type": "vpa",
+        "address": "sumedh@bajaj"
+      },
+      "flow": "debit",
+      "description": "no remarks"
+    },
+    {
+      "status": "requested",
+      "amount": 10000,
+      "end_date": 1591315200,
+      "currency": "INR",
+      "cycles_completed": 0,
+      "payer": {
+        "id": "vpa_IpewTaSetGlJWk",
+        "beneficiary_name": "BHAVESH GOVINDBHAI PATEL",
+        "validated": true,
+        "type": "vpa",
+        "address": "hri2@bajaj"
+      },
+      "recurring_type": "MONTHLY",
+      "expire_at": 1645598302,
+      "revoked_at": null,
+      "recurring_value": 5,
+      "type": "collect",
+      "recurring_rule": "ON",
+      "umn": "uniqueMandateNumber@bank",
+      "id": "cmdt_IzLWSr13sD8a5O",
+      "upi": {
+        "ref_id": "",
+        "mcc": "4121",
+        "gateway_error_description": "Incoming mandate collect request",
+        "network_transaction_id": "BJJ71f7d43bdf64d72d9saddfded",
+        "rrn": "809323430413",
+        "ref_url": "https://www.abcxyz.com/",
+        "gateway_error_code": "00"
+      },
+      "entity": "customer.mandate",
+      "amount_rule": "EXACT",
+      "start_date": 1591228800,
+      "payee": {
+        "id": "vpa_Iz30VXkQZVpinX",
+        "beneficiary_name": "BANKTEST",
+        "validated": true,
+        "type": "vpa",
+        "address": "test@bank"
+      },
+      "flow": "debit",
+      "description": "Sample Remarks"
+    }
+  ],
+  "count": 2
+}

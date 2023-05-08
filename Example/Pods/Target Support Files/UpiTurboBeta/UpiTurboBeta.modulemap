@@ -1,0 +1,6 @@
+framework module UpiTurboBeta {
+  umbrella header "UpiTurboBeta-umbrella.h"
+
+  export *
+  module * { export * }
+}

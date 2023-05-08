@@ -1,0 +1,16 @@
+PODS:
+  - UpiTurboBeta (0.1.0)
+
+DEPENDENCIES:
+  - UpiTurboBeta (from `../`)
+
+EXTERNAL SOURCES:
+  UpiTurboBeta:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  UpiTurboBeta: 0dfb9693e3e226866efbd115f0464917f4814655
+
+PODFILE CHECKSUM: 6110f9c708d17088c53a76b436e42516db30a6ef
+
+COCOAPODS: 1.11.2

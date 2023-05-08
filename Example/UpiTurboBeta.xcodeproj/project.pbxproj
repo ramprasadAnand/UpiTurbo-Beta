@@ -29,9 +29,9 @@
 
 /* Begin PBXFileReference section */
 		1C9CE5D4AFCAEF9947EC2FB4 /* Pods_UpiTurboBeta_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpiTurboBeta_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		314D599229E0D80BF968B70B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		314D599229E0D80BF968B70B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5019200C313F02A605E4D378 /* Pods_UpiTurboBeta_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpiTurboBeta_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C25A720F7E8DF92C775D8D0 /* UpiTurboBeta.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = UpiTurboBeta.podspec; path = ../UpiTurboBeta.podspec; sourceTree = "<group>"; };
+		5C25A720F7E8DF92C775D8D0 /* UpiTurboBeta.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = UpiTurboBeta.podspec; path = ../UpiTurboBeta.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACD01AFB9204008FA782 /* UpiTurboBeta_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpiTurboBeta_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6963A9E6D9A1824869D2BD9B /* Pods-UpiTurboBeta_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpiTurboBeta_Tests.debug.xcconfig"; path = "Target Support Files/Pods-UpiTurboBeta_Tests/Pods-UpiTurboBeta_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8489513978D745C14960F0BA /* Pods-UpiTurboBeta_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpiTurboBeta_Example.release.xcconfig"; path = "Target Support Files/Pods-UpiTurboBeta_Example/Pods-UpiTurboBeta_Example.release.xcconfig"; sourceTree = "<group>"; };
-		B43547CB242653BDA9BD1B08 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		B43547CB242653BDA9BD1B08 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		CAA258D5B46B136E020B059F /* Pods-UpiTurboBeta_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpiTurboBeta_Tests.release.xcconfig"; path = "Target Support Files/Pods-UpiTurboBeta_Tests/Pods-UpiTurboBeta_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E814CD21F0248C11203EECCA /* Pods-UpiTurboBeta_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpiTurboBeta_Example.debug.xcconfig"; path = "Target Support Files/Pods-UpiTurboBeta_Example/Pods-UpiTurboBeta_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,7 +86,6 @@
 				6963A9E6D9A1824869D2BD9B /* Pods-UpiTurboBeta_Tests.debug.xcconfig */,
 				CAA258D5B46B136E020B059F /* Pods-UpiTurboBeta_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
