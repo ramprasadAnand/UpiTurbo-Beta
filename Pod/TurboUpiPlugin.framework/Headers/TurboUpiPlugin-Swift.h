@@ -291,7 +291,7 @@ SWIFT_CLASS("_TtC14TurboUpiPlugin8AllBanks")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-typedef SWIFT_ENUM(NSInteger, LinkActionCode, closed) {
+typedef SWIFT_ENUM(NSInteger, LinkActionCode, open) {
   LinkActionCodeSendSms = 0,
   LinkActionCodeSelectBank = 1,
   LinkActionCodeSelectBankAccount = 2,
@@ -325,15 +325,24 @@ SWIFT_CLASS("_TtC14TurboUpiPlugin13RazorpayTurbo")
 
 @protocol UPITurboPlugin;
 @protocol PluginPaymentDelegate;
+@protocol UPITurboUIPlugin;
 
 SWIFT_CLASS("_TtC14TurboUpiPlugin16RazorpayTurboUPI")
 @interface RazorpayTurboUPI : NSObject
 + (id <UPITurboPlugin> _Nonnull)pluginInstance SWIFT_WARN_UNUSED_RESULT;
 + (id <PluginPaymentDelegate> _Nonnull)paymentPlugin SWIFT_WARN_UNUSED_RESULT;
++ (id <UPITurboUIPlugin> _Nonnull)turboUIPlugin SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UpiAccount;
+
+SWIFT_PROTOCOL("_TtP14TurboUpiPlugin29UPITurboOnboardResultDelegate_")
+@protocol UPITurboOnboardResultDelegate
+- (void)onSuccessFetchingLinkedAcc:(NSArray<UpiAccount *> * _Nonnull)accList;
+- (void)onErrorFetchingLinkedAcc:(NSError * _Nullable)error;
+@end
+
 
 SWIFT_PROTOCOL("_TtP14TurboUpiPlugin22UPITurboResultDelegate_")
 @protocol UPITurboResultDelegate

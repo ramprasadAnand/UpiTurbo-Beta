@@ -1,0 +1,106 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name TurboUpiPlugin
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import Razorpay
+import RazorpayTurboUPI
+import Swift
+@_exported import TurboUpiPlugin
+import _Concurrency
+import _StringProcessing
+@_inheritsConvenienceInitializers @objc public class RazorpayTurboUPI : ObjectiveC.NSObject {
+  @objc public class func pluginInstance() -> any Razorpay.UPITurboPlugin
+  @objc public class func paymentPlugin() -> any Razorpay.PluginPaymentDelegate
+  @objc public class func turboUIPlugin() -> any Razorpay.UPITurboUIPlugin
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol UpiTurboLinkAccActionDelegate {
+  @objc func onResponse(_ action: TurboUpiPlugin.LinkUpiAction)
+}
+@objc public protocol UPITurboResultDelegate {
+  @objc func onSuccessFetchingLinkedAcc(_ accList: [TurboUpiPlugin.UpiAccount])
+  @objc func onErrorFetchingLinkedAcc(_ error: (any Swift.Error)?)
+}
+@objc public protocol UPITurboOnboardResultDelegate {
+  @objc func onSuccessFetchingLinkedAcc(_ accList: [TurboUpiPlugin.UpiAccount])
+  @objc func onErrorFetchingLinkedAcc(_ error: (any Swift.Error)?)
+}
+@objc @_inheritsConvenienceInitializers public class RazorpayTurbo : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class LinkUpiAction : ObjectiveC.NSObject {
+  public typealias Bank = Any
+  public typealias BankAccount = Any
+  public typealias Card = Any
+  @objc public var code: TurboUpiPlugin.LinkActionCode
+  @objc public var data: Any?
+  @objc public var error: (any Swift.Error)?
+  @objc public init(action: TurboUpiPlugin.LinkActionCode, error: (any Swift.Error)? = nil)
+  @objc public func fetchAllBanks()
+  @objc public func selectedBank(_ bank: Any)
+  @objc public func selectedBankAccount(_ bankAccount: Any)
+  @objc public func setUpiPin(_ bankAccount: TurboUpiPlugin.UpiBankAccount, _ card: TurboUpiPlugin.UpiCard)
+  @objc deinit
+}
+@objc public class UpiAccount : ObjectiveC.NSObject {
+  public var id: Swift.String
+  public var name: Swift.String?
+  public var isDefault: Swift.Bool?
+  public var validated: Swift.Bool?
+  public var address: Swift.String?
+  public var isActive: Swift.Bool?
+  public var maskedAccountNumber: Swift.String?
+  public var bankName: Swift.String?
+  public var bankLogo: Swift.String?
+  public init(id: Swift.String, vpa: Any, name: Swift.String?, isDefault: Swift.Bool?, validated: Swift.Bool?, address: Swift.String?, isActive: Swift.Bool?, maskedAccountNumber: Swift.String?, bankName: Swift.String?, bankLogo: Swift.String?)
+  @objc deinit
+}
+@objc public class AllBanks : ObjectiveC.NSObject {
+  @objc final public let popularBanks: Any
+  @objc final public let allBanks: Any
+  public init(popularBanks: Any, allBanks: Any)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class UpiBank : ObjectiveC.NSObject {
+  @objc final public let name: Swift.String?
+  @objc final public let ifsc: Swift.String?
+  @objc final public let imageUrl: Swift.String?
+  @objc final public let bankLogo: Swift.String?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class UpiBankAccount : ObjectiveC.NSObject {
+  @objc final public let accountNumber: Swift.String?
+  @objc final public let benificiaryName: Swift.String?
+  @objc final public let accountNumberLast4: Swift.String?
+  @objc final public let ifsc: Swift.String?
+  @objc deinit
+}
+@objc public class UpiCard : ObjectiveC.NSObject {
+  @objc final public let expiryMonth: Swift.String
+  @objc final public let expiryYear: Swift.String
+  @objc public init(expMonth: Swift.String, expYear: Swift.String, lastSixDigits: Swift.String)
+  @objc deinit
+}
+@objc public enum LinkActionCode : Swift.Int {
+  case sendSms, selectBank, selectBankAccount, setUpiPin, linkAccountResponse
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class UpiAccountBalance : ObjectiveC.NSObject {
+  @objc final public let success: Swift.Bool
+  @objc final public let balance: Swift.Int
+  @objc final public let currency: Swift.String
+  @objc final public let id: Swift.String
+  @objc public init(success: Swift.Bool, balance: Swift.Int, currency: Swift.String, id: Swift.String)
+  @objc deinit
+}
+public typealias CallBack<T> = (_ response: T?, _ error: (any Swift.Error)?) -> Swift.Void
+extension TurboUpiPlugin.LinkActionCode : Swift.Equatable {}
+extension TurboUpiPlugin.LinkActionCode : Swift.Hashable {}
+extension TurboUpiPlugin.LinkActionCode : Swift.RawRepresentable {}
