@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
 // swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name RazorpayTurboUPI
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import CommonCrypto
@@ -58,11 +58,12 @@ public struct Bank : Swift.Codable {
   public let isUpiAvailable: Swift.Bool?
   public let ifsc: Swift.String?
   public let imageURL: Swift.String?
+  public var displayName: Swift.String?
   public var bankLogo: Swift.String {
     get
   }
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension RazorpayTurboUPI.Bank {
   public func getBankAccounts(_ handler: @escaping RazorpayTurboUPI.CallBack<[RazorpayTurboUPI.BankAccount]>)
@@ -101,8 +102,8 @@ public struct Concern : Swift.Codable {
   public let responseDescription: Swift.String?
   public let createdAt: Swift.Int?
   public let transaction: RazorpayTurboUPI.Transaction?
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public typealias moneyHandler = RazorpayTurboUPI.CallBack<RazorpayTurboUPI.Transaction>
 public struct PauseMandateRequest {
@@ -122,8 +123,8 @@ extension RazorpayTurboUPI.ScenerioView : UIKit.UITextFieldDelegate {
 public struct VPAAvailability : Swift.Codable {
   public let isAvailable: Swift.Bool?
   public let suggestions: [Swift.String]?
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public class TransactionsAPI {
   public init()
@@ -141,7 +142,7 @@ public class TransactionsAPI {
   public static func vpaParameter(address: Swift.String) -> Self?
   public static func bankAccountParameter(beneficiaryName: Swift.String, ifsc: Swift.String, accountNumber: Swift.String) -> Self
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
 }
 extension UIKit.UITextField {
   @_Concurrency.MainActor(unsafe) public class func validateAmountTextField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
@@ -150,8 +151,8 @@ public struct AccountBalance : Swift.Codable {
   public let balance: Swift.Int?
   public let currency: Swift.String?
   public let id: Swift.String?
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct PayRequest {
   public enum Source : Swift.String {
@@ -190,7 +191,7 @@ extension RazorpayTurboUPI.CustomAlertViewProtocol where Self : UIKit.UIView {
 @_hasMissingDesignatedInitializers public class SDKPreferencesAPI {
   @objc deinit
 }
-public typealias CallBack<T> = (T?, Swift.Error?) -> Swift.Void
+public typealias CallBack<T> = (T?, (any Swift.Error)?) -> Swift.Void
 public enum UpiState : Swift.String {
   case notRegistered
   case registered
@@ -220,9 +221,10 @@ public class RazorpayUpi {
   public init?(keyId: Swift.String, sessionId: Swift.String, mobileNo: Swift.String, callback: @escaping RazorpayTurboUPI.CallBack<Swift.Bool>)
   @discardableResult
   public init?(keyId: Swift.String, customerId: Swift.String, mHandle: Swift.String, callback: @escaping RazorpayTurboUPI.CallBack<Swift.Bool>)
-  public func pay(payRequest: RazorpayTurboUPI.PayRequest, _ handler: @escaping RazorpayTurboUPI.moneyHandler)
   public func manageUpiAccounts()
-  public func linkNewAccount()
+  public func pay(payRequest: RazorpayTurboUPI.PayRequest, _ handler: @escaping RazorpayTurboUPI.moneyHandler)
+  public func linkNewAccount(_ handler: @escaping RazorpayTurboUPI.CallBack<[RazorpayTurboUPI.VPADetails]>)
+  public func linkNewAccount(payRequest: RazorpayTurboUPI.PayRequest?, _ handler: @escaping RazorpayTurboUPI.moneyHandler)
   public func getPopularBanks() -> [RazorpayTurboUPI.PopularBanks]?
   @objc deinit
 }
@@ -243,8 +245,9 @@ extension Swift.String {
 public struct PopularBanks : Swift.Codable {
   public var iin: Swift.String
   public var priority: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public var displayName: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public class ImageCacheAPI {
   public init()
@@ -268,8 +271,8 @@ public struct VPADetails : Swift.Codable {
   public let createdAt: Swift.Int?
   public let deletedAt: Swift.Double?
   public init(entity: Swift.String?, id: Swift.String?, address: Swift.String?, handle: Swift.String?, username: Swift.String?, name: Swift.String?, account: RazorpayTurboUPI.BankAccount?, active: Swift.Bool?, validated: Swift.Bool?, verified: Swift.Bool?, isDefault: Swift.Bool?, createdAt: Swift.Int?, deletedAt: Swift.Double?)
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension RazorpayTurboUPI.VPADetails {
   public static func createDefaultVPA(bankAccount: RazorpayTurboUPI.BankAccount, _ handler: @escaping RazorpayTurboUPI.CallBack<[RazorpayTurboUPI.VPADetails]>)
@@ -292,8 +295,8 @@ public struct BankAccount : Swift.Codable {
   public var accountNumberLast4: Swift.String {
     get
   }
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension RazorpayTurboUPI.BankAccount {
   public func setupUpiPin(card: RazorpayTurboUPI.Card, handler: @escaping RazorpayTurboUPI.CallBack<RazorpayTurboUPI.BankAccount>)
@@ -325,8 +328,8 @@ public struct Beneficiary : Swift.Codable {
   public let blockedAt: Swift.Double?
   public let username: Swift.String?
   public let handle: Swift.String?
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension RazorpayTurboUPI.Beneficiary {
   public init(vpa: RazorpayTurboUPI.VPADetails)
@@ -366,8 +369,8 @@ public struct Mandate : Swift.Codable {
   public let flow: Swift.String?
   public let startDate: Swift.Double?, revokeDate: Swift.Double?, pauseDate: Swift.Double?
   public let currency: Swift.String?
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension RazorpayTurboUPI.Mandate {
   public func getMandate(handle: @escaping RazorpayTurboUPI.CallBack<RazorpayTurboUPI.Mandate>)
@@ -432,15 +435,15 @@ public struct Creds : Swift.Codable {
   public let upipin: RazorpayTurboUPI.AccountCredentials?
   public let sms: RazorpayTurboUPI.AccountCredentials?
   public let atmpin: RazorpayTurboUPI.AccountCredentials?
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct AccountCredentials : Swift.Codable {
   public let length: Swift.Int?
   public let isSet: Swift.Bool?
   public init(length: Swift.Int?, isSet: Swift.Bool?)
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct Upi : Swift.Codable {
   public let rrn: Swift.String?
@@ -451,8 +454,8 @@ public struct Upi : Swift.Codable {
   public let gatewayErrorCode: Swift.String?
   public let gatewayErrorDescription: Swift.String?
   public let createdAt: Swift.Double?
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct Transaction : Swift.Codable {
   public let id: Swift.String?
@@ -475,8 +478,8 @@ public struct Transaction : Swift.Codable {
   public let bankAccount: RazorpayTurboUPI.BankAccount?
   public let upi: RazorpayTurboUPI.Upi?
   public let gatewayDescripiton: Swift.String?
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension RazorpayTurboUPI.Transaction {
   public func reject(beneficiary: RazorpayTurboUPI.Beneficiary, handle: @escaping RazorpayTurboUPI.CallBack<RazorpayTurboUPI.Transaction>)
@@ -507,7 +510,7 @@ extension UIKit.UIDevice {
       get
     }
   }
-  @_Concurrency.MainActor(unsafe) public static func isValid() -> Swift.Result<Swift.Bool, Swift.Error>
+  @_Concurrency.MainActor(unsafe) public static func isValid() -> Swift.Result<Swift.Bool, any Swift.Error>
 }
 @_hasMissingDesignatedInitializers public class DictionaryEncoder {
   public func encode<T>(_ value: T) throws -> [Swift.String : Any] where T : Swift.Encodable
@@ -541,12 +544,12 @@ public class URLParsedObject : Swift.Codable {
   final public let qrType: RazorpayTurboUPI.URLType
   final public let merchantCategory: Swift.String?
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 public class QRParser {
   public init()
-  public func parseQR(_ stringToParse: Swift.String) -> Swift.Result<RazorpayTurboUPI.URLParsedObject, Swift.Error>
+  public func parseQR(_ stringToParse: Swift.String) -> Swift.Result<RazorpayTurboUPI.URLParsedObject, any Swift.Error>
   @objc deinit
 }
 extension RazorpayTurboUPI.PayRequest.Source : Swift.Equatable {}

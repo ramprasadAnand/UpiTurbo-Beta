@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'UpiTurboBeta'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'Upi Turbo Feature - Beta Testing POD'
 
 # This description is used to generate tags and improve search results.
