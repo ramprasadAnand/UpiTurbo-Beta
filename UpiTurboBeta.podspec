@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/85918255/UpiTurboBeta.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '13.0'
+  s.ios.deployment_target = '11.0'
   s.vendored_frameworks = ['Pod/TurboUpiPlugin.framework', 'Pod/RazorpayTurboUPI.framework', 'Pod/CommonLibrary.framework', 'Pod/OlivePayLibrary.framework']
 
   s.source_files = 'UpiTurboBeta/Classes/**/*'
