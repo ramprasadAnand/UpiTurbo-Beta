@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name TurboUpiPlugin
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Foundation
@@ -13,6 +13,7 @@ import _StringProcessing
   @objc public class func pluginInstance() -> any Razorpay.UPITurboPlugin
   @objc public class func paymentPlugin() -> any Razorpay.PluginPaymentDelegate
   @objc public class func turboUIPlugin() -> any Razorpay.UPITurboUIPlugin
+  @objc public class func turboUIPaymentPlugin() -> any Razorpay.PluginPaymentDelegate
   @objc override dynamic public init()
   @objc deinit
 }
@@ -39,7 +40,7 @@ import _StringProcessing
   @objc public var data: Any?
   @objc public var error: (any Swift.Error)?
   @objc public init(action: TurboUpiPlugin.LinkActionCode, error: (any Swift.Error)? = nil)
-  @objc public func fetchAllBanks()
+  @objc public func registerDevice()
   @objc public func selectedBank(_ bank: Any)
   @objc public func selectedBankAccount(_ bankAccount: Any)
   @objc public func setUpiPin(_ bankAccount: TurboUpiPlugin.UpiBankAccount, _ card: TurboUpiPlugin.UpiCard)

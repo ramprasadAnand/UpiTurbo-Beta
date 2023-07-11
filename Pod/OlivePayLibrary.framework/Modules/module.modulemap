@@ -6,6 +6,6 @@ framework module OlivePayLibrary {
 }
 
 module OlivePayLibrary.Swift {
-    header "OlivePayLibrary-Swift.h"
-    requires objc
+  header "OlivePayLibrary-Swift.h"
+  requires objc
 }

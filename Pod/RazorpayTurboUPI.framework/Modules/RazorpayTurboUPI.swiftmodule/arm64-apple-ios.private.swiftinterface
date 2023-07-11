@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
-// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name RazorpayTurboUPI
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name RazorpayTurboUPI
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import CommonCrypto
 import CoreLocation
@@ -10,7 +10,6 @@ import ImageIO
 import MessageUI
 import OlivePayLibrary
 import Security
-import Segment
 import Swift
 import SystemConfiguration
 import UIKit
@@ -59,6 +58,7 @@ public struct Bank : Swift.Codable {
   public let ifsc: Swift.String?
   public let imageURL: Swift.String?
   public var displayName: Swift.String?
+  public let bankLogoPlaceholder: Swift.String
   public var bankLogo: Swift.String {
     get
   }
@@ -177,6 +177,14 @@ public struct PayRequest {
   public var additionalDetail: [Swift.String : Any]?
   public init(amount: Swift.String, currency: Swift.String, description: Swift.String?, beneficiary: RazorpayTurboUPI.Beneficiary? = nil, vpa: RazorpayTurboUPI.VPADetails? = nil, source: RazorpayTurboUPI.PayRequest.Source? = nil, merchantCategory: Swift.String? = nil, url: Swift.String? = nil, transactionId: Swift.String? = nil, additionalDetail: [Swift.String : Any]? = nil, orderId: Swift.String? = nil)
 }
+extension RazorpayTurboUPI.PayRequest {
+  public var asDictionary: [Swift.String : Any] {
+    get
+  }
+  public var asEventStringP2m: Swift.String? {
+    get
+  }
+}
 public protocol CustomAlertViewProtocol {
   func show(animated: Swift.Bool)
   func viewDisplayed()
@@ -216,6 +224,10 @@ public class RazorpayUpi {
   }
   public var state: RazorpayTurboUPI.UpiState {
     get
+  }
+  public var accentColorHexCode: Swift.String? {
+    get
+    set
   }
   @discardableResult
   public init?(keyId: Swift.String, sessionId: Swift.String, mobileNo: Swift.String, callback: @escaping RazorpayTurboUPI.CallBack<Swift.Bool>)
@@ -283,6 +295,15 @@ extension RazorpayTurboUPI.VPADetails {
   public func deleteVPA(_ handler: @escaping RazorpayTurboUPI.CallBack<Swift.Bool>)
   public func setDefault(_ handler: @escaping RazorpayTurboUPI.CallBack<RazorpayTurboUPI.VPADetails>)
   public func delinkVpa(_ handler: @escaping RazorpayTurboUPI.CallBack<RazorpayTurboUPI.VPADetails>)
+}
+extension Swift.Decodable {
+  public init(from: Any) throws
+}
+extension Swift.Encodable {
+  public func toJSONString() -> Swift.String?
+  public var dictionary: [Swift.String : Any]? {
+    get
+  }
 }
 public struct BankAccount : Swift.Codable {
   public let id: Swift.String?
